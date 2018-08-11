@@ -1,0 +1,430 @@
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Montserrat", sans-serif !important;
+}
+
+body {
+    color: #ccc;
+    height: 100%;
+}
+
+h1 {
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    width: 100px;
+    height: 150px;
+    padding: 0;
+}
+
+@media (max-height: 573px) {
+    img {
+        height: 115px;
+    }
+}
+
+#pageTable {
+    background-image: url("../img/tableBackground.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 0px !important;
+}
+
+#status {
+    font-family: 'Baloo Bhaina', cursive;
+    color: #2BB2DD;
+    width: 70%;
+    margin-left: 15%;
+    text-align: center;
+    margin-top: 30%;
+    height: 15%;
+    opacity: 0.9;
+    position: fixed;
+    font-size: 3em;
+    z-index: 99;
+    -webkit-animation-duration: 3s;
+    -moz-animation-duration: 3s;
+    -chrome-animation-duration: 3s;
+}
+
+@media (min-width: 800px) {
+    #status {
+        margin-top: 20%;
+    }
+}
+
+.ui-btn {
+    font-family: "Montserrat", sans-serif;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+.ui-overlay-a,
+.ui-page-theme-a,
+.ui-page-theme-a .ui-panel-wrapper {
+    background-color: #1b1b1b !important;
+}
+
+#dHand,
+#pHand {
+    height: 30%;
+    margin-top: 5%;
+}
+
+@media (min-width: 500px) {
+    #dHand,
+    #pHand {
+        margin-top: 3%;
+    }
+}
+
+.splitBox {
+    width: 50%;
+    display: inline;
+}
+
+#txtDealer {
+    font-size: 7em;
+    position: absolute;
+}
+
+@media (max-width: 500px) {
+    #txtDealer {
+        font-size: 4em;
+    }
+}
+
+/*.container:after {*/
+    /*clear: both;*/
+/*}*/
+
+#txtRules {
+    font-size: 1.5em;
+    position: absolute;
+}
+
+@media (max-width: 500px) {
+    #txtRules {
+        font-size: 1em;
+    }
+}
+
+.txtTable {
+    width: 60%;
+    margin-left: 20%;
+    text-align: center;
+    margin-top: 30px;
+    text-shadow: none;
+    /*text-shadow: 0px 2px 3px #222;*/
+    opacity: 0.1;
+    font-family: 'Anton', sans-serif;
+}
+
+@media (max-width: 500px) {
+    .txtTable {
+        margin-left: 10%;
+    }
+}
+
+.cardBox {
+    width: 65%;
+    margin: 1% auto;
+    padding: 20px;
+    z-index: 10;
+}
+
+@media (max-width: 500px) {
+    .cardBox {
+        padding: 10px;
+        margin: 0;
+        width: 100%;
+    }
+}
+
+@media (max-height: 500px) {
+    .cardBox {
+        margin-top: 25px;
+        padding: 0;
+    }
+}
+
+.card {
+    padding: 5px;
+    border-radius: 10px;
+    position: relative;
+    height: 150px;
+    width: 100px;
+    background-color: #fff;
+    color: #222;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
+    float: left;
+    margin-right: 10px;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -chrome-animation-duration: 1s;
+}
+
+@media (max-height: 573px) {
+    .card {
+        height: 115px;
+    }
+}
+
+@media (max-height: 573px) {
+    .lgSuit svg {
+        width: 50px !important;
+        height: 50px !important;
+        margin-left: 25px !important;
+    }
+}
+
+.card-stack {
+    margin-left: -90px;
+}
+
+.pip {
+    margin-left: 4px;
+    text-shadow: none;
+    font-weight: bold;
+}
+
+.pip-red {
+    color: #d31f26;
+}
+
+.lgSuit svg {
+    width: 90px;
+    height: 90px;
+    margin-left: 4px;
+}
+
+.smSuit svg {
+    width: 20px;
+    height: 20px;
+}
+
+#chipRow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+@media (max-height: 500px) {
+    #chipRow {
+        margin-bottom: 5px;
+    }
+}
+
+@media (min-width: 500px) {
+    #chipRow {
+        width: 70%;
+    }
+}
+
+@media (max-width: 400px) {
+    #chipRow {
+        margin-bottom: 5px;
+    }
+}
+
+.info-btn {
+    text-shadow: none;
+    color: #ff3344 !important;
+    border: none !important;
+    opacity: 1 !important;
+    cursor: default;
+}
+
+.info-btn:hover {
+    text-shadow: none;
+    color: #ff3344 !important;
+    border: none !important;
+    opacity: 1 !important;
+    cursor: default;
+}
+
+.ui-grid-d {
+    margin: auto;
+}
+
+.chip {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.chip svg {
+    width: 65px;
+    height: 65px;
+    cursor: pointer;
+}
+
+@media (max-height: 500px) {
+    .chip svg {
+        width: 45px;
+        height: 75px;
+    }
+}
+
+@media (max-width: 400px) {
+    .chip svg {
+        width: 45px;
+        height: 75px;
+    }
+}
+
+.chip svg text {
+    font-size: 9em;
+    text-shadow: none;
+    fill: white;
+}
+
+.ui-content {
+    position: absolute;
+    top: 35px;
+    right: 0;
+    bottom: 20px;
+    left: 0;
+}
+
+#footer {
+    padding: 10px 0px;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+.center {
+    text-align: center;
+}
+
+.dev-red {
+    outline: dashed;
+    outline-color: #f34;
+}
+
+.dev-blue {
+    outline: dashed;
+    outline-color: #1a89f3;
+}
+
+.dev-white {
+    outline: dashed;
+    outline-color: #ccc;
+}
+
+.fixedBtns {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 180px;
+}
+
+.fixedBtns ul {
+    padding-left: 0px !important;
+}
+
+#fixedBtns-left {
+    left: 0;
+}
+
+#fixedBtns-right {
+    right: 0;
+}
+
+@media (max-width: 500px) {
+    .fixedBtns {
+        font-size: 14px;
+    }
+}
+
+@media (max-height: 500px) {
+    .fixedBtns {
+        margin-bottom: 110px;
+    }
+}
+
+.actionBtn {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    border-width: 2px;
+    border-color: #ccc !important;
+    font-size: 18px;
+    opacity: .8;
+    height: 30px;
+    z-index: 99;
+}
+
+.actionBtn-left {
+    border-radius: 0px 5px 5px 0px !important;
+    border-left: none;
+}
+
+.actionBtn-right {
+    border-radius: 5px 0px 0px 5px !important;
+    border-right: none;
+}
+
+.disableBtn {
+    opacity: 0.3 !important;
+    cursor: default !important;
+}
+
+.actionBtn:hover {
+    opacity: 1;
+}
+
+.actionBtn.disabled {
+    opacity: .5;
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.hide {
+    display: none !important;
+}
+
+.show {
+    display: block !important;
+}
+
+.center-block {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.pull-right {
+    float: right !important;
+}
+
+.pull-left {
+    float: left !important;
+}
+
+#txtStatus {
+    font-size: 16px;
+    color: #fff;
+}

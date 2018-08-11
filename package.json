@@ -1,0 +1,21 @@
+{
+  "name": "blackjack",
+  "version": "1.0.0",
+  "description": "jQuery Mobile blackjack app",
+  "main": "app-server.js",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "console-stamp": "^0.2.5",
+    "express": "^4.15.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "version:",
+    "(1.0.0)"
+  ],
+  "author": "Casey J. Murphy",
+  "license": "ISC"
+}

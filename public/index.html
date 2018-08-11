@@ -1,0 +1,259 @@
+<!-- Murphy - CS321 Mobile Apps (S17) - Final Project -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Blackjack</title>
+
+    <!-- CSS -->
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet">
+    <link href="css/site.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+
+    <!--Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="libs/jquery-1.11.1.js"></script>
+    <script src="libs/jquery.mobile-1.4.5.js"></script>
+    <script src="libs/d3.min.js"></script>
+    <script src="libs/jquery.playSound.js"></script>
+    <!--<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>-->
+    <!--<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+</head>
+
+<body>
+    <!--  table page  -->
+    <div class="ui-page" data-role="page" data-theme="b" id="pageTable">
+        <div data-role="header">
+            <a href="#pageMenu" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-bars" data-transition="flip">Menu</a>
+            <a href="#pageInfo" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-info" data-transition="flip">Info</a>
+            <h1>Blackjack</h1>
+        </div>
+        <div class="ui-content" data-role="content" id="table">
+            <div id="txtDealer" class="txtTable">DEALER</div>
+            <div id="dHand" class="dev-white">
+                <div class="cardBox" data-role="controlgroup"></div>
+            </div>
+            <div id="txtRules" class="txtTable">
+                Dealer must hit soft 17<br/>
+                Blackjack pays 3 to 2<br/>
+                Insurance pays 2 to 1
+            </div>
+            <div id="pHand" class="dev-white">
+                <div class="cardBox" data-role="controlgroup"></div>
+                <div id="splitBox1" class="splitBox dev-blue">
+                    split 1
+                </div>
+                <div id="splitBox2" class="splitBox dev-red">
+                    split 2
+                </div>
+            </div>
+            <div>
+                <div id="chipRow">
+                    <ul class="ui-grid-d">
+                        <li class="ui-block-a chip" value="5"></li>
+                        <li class="ui-block-b chip" value="25"></li>
+                        <li class="ui-block-c chip" value="100"></li>
+                        <li class="ui-block-d chip" value="500"></li>
+                        <li class="ui-block-e chip" value="1000"></li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="fixedBtns-left" class="fixedBtns">
+            <ul>
+                <li><a id="btnIns" class="hide ui-btn ui-corner-all center actionBtn actionBtn-left">Insurance</a></li>
+                <li><a id="btnDD" class="hide ui-btn ui-corner-all center actionBtn actionBtn-left">Double Down</a></li>
+                <li><a id="btnSplit" class="hide ui-btn ui-corner-all center actionBtn actionBtn-left">Split</a></li>
+            </ul>
+        </div>
+        <div id="fixedBtns-right" class="fixedBtns">
+            <ul>
+                <li><a id="btnRpt" class="hide ui-btn ui-corner-all center actionBtn actionBtn-right">Rebet</a></li>
+                <li><a id="btnDeal" class="hide ui-btn ui-corner-all center actionBtn actionBtn-right">Deal</a></li>
+                <li><a id="btnHit" class="hide ui-btn ui-corner-all center actionBtn actionBtn-right">Hit</a></li>
+                <li><a id="btnStand" class="hide ui-btn ui-corner-all center actionBtn actionBtn-right">Stand</a></li>
+            </ul>
+        </div>
+        <div id="status"></div>
+        <div id="footer" data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <div class="container">
+                <div data-role="navbar">
+                    <ul>
+                        <li class="left" id="txtBet"></li>
+                        <li class="center" id="txtStatus"></li>
+                        <li class="right" id="txtCash"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  menu page  -->
+    <div data-role="page" data-theme="b" id="pageMenu" data-dialog="true" data-close-btn="right">
+        <div data-role="header">
+            <h3>Menu</h3>
+        </div>
+        <div class="panel">
+            <div data-role="collapsible-set">
+                <div data-role="collapsible">
+                    <h3>Settings</h3>
+                    <a href="#" id="btnDevMode" class="ui-btn ui-corner-all"></a>
+                </div>
+                <div data-role="collapsible">
+                    <h3>Credits</h3>
+                    <p>
+                        Game information obtained at <a href="http://www.bicyclecards.com/how-to-play/blackjack/" target="_blank">Bicycle Cards</a>.
+                        <br>
+                        A detailed explanation of play can be found at <a href="https://www.sportbet.com/casino/Blackjack-Rules.html" target="_blank">SportBet</a>.
+                        <br>
+                        Sounds can be found <a href="https://opengameart.org/content/54-casino-sound-effects-cards-dice-chips" target="_blank">here</a>.
+                    </p>
+                </div>
+                <div data-role="collapsible">
+                    <h3>About</h3>
+                    <p>Author: Casey Murphy</p>
+                    <p>Prepared for CS-321 @ <a href="http://wvup.edu" target="_blank">WVUP</a> [Final Project F17].</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  info page  -->
+    <div data-role="page" data-theme="b" id="pageInfo" data-dialog="true" data-close-btn="right">
+        <div data-role="header">
+            <h3>Info</h3>
+        </div>
+        <div data-role="collapsible-set">
+            <div data-role="collapsible">
+                <h3>Game</h3>
+                <div data-role="controlgroup">
+                    <div data-role="collapsible-set">
+                        <div data-role="collapsible">
+                            <h3>How to Play</h3>
+                            <p>
+                                To play a round, you must first place a bet by tapping on the chip buttons. Once you've selected your bet, press the deal button to begin play.
+                            </p>
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>House Rules</h3>
+                            Dealer must draw to 16 and stand on 17<br> Blackjack pays 3:2<br> Insurance pays 2:1<br>
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>Objective</h3>
+                            <p>
+                                Each participant attempts to beat the dealer by getting a count as close to 21 as possible, without going over 21.
+                            </p>
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>Scoring</h3>
+                            <p>
+                                It is up to each individual player if an ace is worth 1 or 11. Face cards are 10 and any other card is its face value.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-role="collapsible">
+                <h3>Play</h3>
+                <div data-role="controlgroup">
+                    <div data-role="collapsible-set">
+                        <div data-role="collapsible">
+                            <h3>Hitting</h3>
+                            <p>
+                                Use this option when you would like to get another card. You may hit as many times as you like, but if you go over 21, you lose. If you get 5 hits without going over 21, you automatically win (2:1).
+                            </p>
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>Standing</h3>
+                            <p>
+                                When you are satisfied with your hand, you may stand to allow the house to take thier turn.
+                            </p>
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>Splitting</h3>
+                            <p>
+                                If a hand has 2 cards of the same value, you may double your bet and split them into two separate hands. Each hand will then be played individually.
+                            </p>
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>Double Down</h3>
+                            <p>
+                                The player is allowed to increase the initial bet by doubling it in exchange for committing to stand after receiving exactly one more card.
+                            </p>
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>Blackjack</h3>
+                            <p>
+                                Any hand containing an Ace and a card with a value of 10 is called a blackjack. Blackjack beats every other hand, and pays 3:2 for the player.
+                            </p>
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>Push</h3>
+                            <p>
+                                If a player's hand has the same value as the house, it is a push. No chips are paid out or collected.
+                            </p>
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>Bust</h3>
+                            <p>
+                                A player busts when their hand is worth more than 21.
+                            </p>
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>Fold</h3>
+                            <p>
+                                This option allows a player to receive half of their original bet back in exchange for forfeiting thier hand.
+                            </p>
+                        </div>
+                        <div data-role="collapsible">
+                            <h3>Insurance</h3>
+                            <p>
+                                If the Dealer is showing an ace, the Player is offered a supplemental bet called insurance. A wager of exactly half of the original bet is placed on the table. If the Dealer has Blackjack, the house pays the Insurance bet 2 to 1. If the Dealer does not have Blackjack, the Player loses the insurance bet, and the Player's initial bet is then settled by comparing his cards with the Dealer's. If the Dealer and the Player both have Blackjack, the game is pushed and the Player gets the amount won by taking insurance, called even money.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-role="collapsible">
+                <h3>Strategy</h3>
+                <div data-role="collapsible ">
+                    <p>
+                        Winning tactics in Blackjack require that the player play each hand in the optimum way, and such strategy always takes into account what the dealer's upcard is. When the dealer's upcard is a good one, a 7, 8, 9, 10-card, or ace for example, the player
+                        should not stop drawing until a total of 17 or more is reached. When the dealer's upcard is a poor one, 4, 5, or 6, the player should stop drawing as soon as he gets a total of 12 or higher. The strategy here is never to take a
+                        card if there is any chance of going bust. The desire with this poor holding is to let the dealer hit and hopefully go over 21. Finally, when the dealer's up card is a fair one, 2 or 3, the player should stop with a total of 13
+                        or higher.
+                    </p>
+                    <p>
+                        With a soft hand, the general strategy is to keep hitting until a total of at least 18 is reached. Thus, with an ace and a six (7 or 17), the player would not stop at 17, but would hit.
+                    </p>
+                    <p>
+                        The basic strategy for doubling down is as follows: With a total of 11, the player should always double down. With a total of 10, he should double down unless the dealer shows a ten-card or an ace. With a total of 9, he should double down only if the
+                        dealer's card is fair or poor (2 through 6).
+                    </p>
+                    <p>
+                        For splitting, the player should always split a pair of aces or 8s; identical ten-cards should not be split, and neither should a pair of 5s, since two 5s are a total of 10, which can be used more effectively in doubling down. A pair of 4s should not
+                        be split either, as a total of 8 is a good number to draw to. Generally, 2s, 3s, or 7s can be split unless the dealer has an 8, 9, ten-card, or ace. Finally, 6s should not be split unless the dealer's card is poor (2 through 6).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  Custom JS  -->
+    <script src="js/pageLoader.js"></script>
+    <script src="js/site.js"></script>
+    <script src="js/eventHandler.js"></script>
+    <script src="js/chips.js"></script>
+    <script src="js/cards.js"></script>
+    <script src="js/blackjack.js"></script>
+    <script src="js/player.js"></script>
+</body>
+</html>
